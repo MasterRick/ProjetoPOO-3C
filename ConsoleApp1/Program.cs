@@ -1,20 +1,4 @@
-﻿
-/*Fila filaAram = new Fila();
-Fila filaRankeada = new Fila();
-Fila filaTFT = new Fila();
-
-
-
-usuario1.queroJogar();
-usuario2.queroJogar();
-
-
-Sala sala1 = new Sala(new Usuario[] { usuario1, usuario2, usuario3 });
-Sala sala2 = new Sala(new Usuario[] { usuario4, usuario5, usuario6 });
-
-Console.WriteLine("Entrou " + sala1.EntraNaFila(filaAram));*/
-
-BancoDeDados banco = new BancoDeDados();
+﻿BancoDeDados banco = new BancoDeDados();
 
 Usuario usuario1 = new Usuario("Richardson", "123456");
 Usuario usuario2 = new Usuario("Bruno", "654321");
