@@ -16,6 +16,14 @@ class BancoDeDados
         }
     }
 
+    public void AdicionarSalaAoBanco(Sala[] sala)
+    {
+        foreach (Sala sal in sala)
+        {
+            this.salas.Add(sal);
+        }
+    }
+
     public void RemoverUsuarioDoBanco(int id)
     {
         for (int i = 0; i < this.usuarios.Count; i++)
