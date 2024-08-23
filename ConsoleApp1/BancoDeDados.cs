@@ -1,6 +1,12 @@
 class BancoDeDados
 {
-    List<Usuario> usuarios = new List<Usuario>();
+    private List<Usuario> usuarios = new List<Usuario>();
+    private List<Sala> salas = new List<Sala>();
+
+    public List<Usuario> GetUsuarios()
+    {
+        return this.usuarios;
+    }
 
     public void AdicionarUsuarioAoBanco(Usuario[] usuario)
     {
@@ -10,15 +16,15 @@ class BancoDeDados
         }
     }
 
-    public Usuario BuscarUsuario(string nome, string senha)
+    public void RemoverUsuarioDoBanco(int id)
     {
-        foreach (Usuario usuario in this.usuarios)
+        for (int i = 0; i < this.usuarios.Count; i++)
         {
-            if (usuario.nome == nome && usuario.GetSenha() == senha)
+            if (this.usuarios[i].GetId() == id)
             {
-                return usuario;
+                this.usuarios.RemoveAt(i);
+                break;
             }
         }
-        return null;
     }
 }

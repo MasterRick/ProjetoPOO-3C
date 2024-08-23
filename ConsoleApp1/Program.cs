@@ -17,69 +17,48 @@ banco.AdicionarUsuarioAoBanco(new Usuario[] { usuario1, usuario2, usuario3, usua
 ConsoleKeyInfo opcao = new ConsoleKeyInfo();
 Usuario usuario = null;
 
-while (opcao.Key != ConsoleKey.D5)
+while (opcao.Key != ConsoleKey.Escape)
 {
-
-    System.Threading.Thread.Sleep(1000);
-    Console.Clear();
-    Console.WriteLine("Olá! Seja bem-vindo ao nosso sistema de filas de jogos!");
-    Console.WriteLine("Digite uma das opções abaixo:");
-    Console.WriteLine("1 - Cadastrar um novo usuário");
-    if (usuario == null)
-    {
-        Console.WriteLine("2 - Login");
-    }
-    else
-    {
-        Console.WriteLine("Logado como " + usuario.nome);
-        Console.WriteLine("2 - Logout");
-    }
-    Console.WriteLine("3 - Cadastrar uma nova sala");
-    Console.WriteLine("4 - Entrar em uma fila");
-    Console.WriteLine("5 - Sair do sistema");
+    MostrarMenuPrincipal();
     opcao = Console.ReadKey();
-
     switch (opcao.Key)
     {
         case ConsoleKey.D1:
             Console.Clear();
-            Console.WriteLine("Digite o nome do usuário:");
-            string nome = Console.ReadLine();
-            Console.WriteLine("Digite a senha do usuário:");
-            string senha = Console.ReadLine();
-            banco.AdicionarUsuarioAoBanco(new Usuario[] { new Usuario(nome, senha) });
-            break;
+            Console.WriteLine("Digite uma das opções abaixo:");
+            Console.WriteLine("1 - Adicionar um novo usuário");
+            Console.WriteLine("2 - Remover um usuário");
+            Console.WriteLine("3 - Listar usuários");
+            opcao = Console.ReadKey();
 
-        case ConsoleKey.D2:
-            if (usuario == null)
+            switch (opcao.Key)
             {
-                Console.Clear();
-                Console.WriteLine("Digite o nome do usuário:");
-                string nomeUsuario = Console.ReadLine();
-                Console.WriteLine("Digite a senha do usuário:");
-                string senhaUsuario = Console.ReadLine();
-                usuario = banco.BuscarUsuario(nomeUsuario, senhaUsuario);
-                if (usuario != null)
-                {
-                    Console.WriteLine("Usuário logado com sucesso!");
-                }
-                else
-                {
-                    Console.WriteLine("Usuário ou senha incorretos!");
-                }
+                case ConsoleKey.D1:
+                    Usuario.Adicionar(banco);
+                    break;
+                case ConsoleKey.D2:
+                    Usuario.Remover(banco);
+                    break;
+                case ConsoleKey.D3:
+                    Usuario.Listar(banco);
+                    break;
             }
-            else
-            {
-                usuario = null;
-                Console.WriteLine("Usuário deslogado com sucesso!");
-            }
+
             break;
 
     }
 
-
-
-
+    void MostrarMenuPrincipal()
+    {
+        System.Threading.Thread.Sleep(1000);
+        Console.Clear();
+        Console.WriteLine("Olá! Seja bem-vindo ao nosso sistema de filas de jogos!");
+        Console.WriteLine("Digite uma das opções abaixo:");
+        Console.WriteLine("1 - Gerenciar contas");
+        Console.WriteLine("2 - Gerenciar Sala");
+        Console.WriteLine("3 - Gerenciar Fila");
+        Console.WriteLine("4 - Gerenciar Jogos");
+    }
 
 }
 
