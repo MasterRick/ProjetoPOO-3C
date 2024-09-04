@@ -1,7 +1,5 @@
-class Sala
+class Sala : Comum
 {
-    int id;
-
     Usuario[] usuarios;
 
     public Sala(Usuario[] usuarios)

@@ -1,4 +1,3 @@
-class Partida
+class Partida : Comum
 {
-    int id;
 }

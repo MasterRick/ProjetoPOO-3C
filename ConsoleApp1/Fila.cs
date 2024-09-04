@@ -1,12 +1,16 @@
-class Fila
+class Fila : Comum
 {
-    int id;
     Sala[] salas;
 
     public Fila()
     {
         Random valor = new Random();
-        this.id = valor.Next();
+        SetId(valor.Next());
+    }
+
+    protected override int GetId()
+    {
+        return this.id + 10;
     }
 
     public void adicionarSalas(Sala[] salas)

@@ -1,6 +1,5 @@
-class Usuario
+class Usuario : Comum
 {
-    private int id;
     public string nome;
     private string senha;
     public bool prontoParaJogar = false;
